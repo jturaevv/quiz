@@ -1,0 +1,16 @@
+{
+  "locales": {
+    "uz": {
+      "short": "O’z",
+      "full": "Узбекский"
+    },
+    "ru": {
+      "short": "Ru",
+      "full": "Rus tili"
+    },
+    "en": {
+      "short": "En",
+      "full": "Ingliz tili"
+    }
+  }
+}

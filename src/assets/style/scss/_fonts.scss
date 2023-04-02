@@ -1,0 +1,16 @@
+// Raleway font-famlily
+@include font-face("Raleway", '@/assets/fonts/Raleway/RalewayLight', 300);
+@include font-face("Raleway", '@/assets/fonts/Raleway/RalewayRegular', 400);
+@include font-face("Raleway", '@/assets/fonts/Raleway/RalewayMedium', 500);
+@include font-face("Raleway", '@/assets/fonts/Raleway/RalewaySemiBold', 600);
+@include font-face("Raleway", '@/assets/fonts/Raleway/RalewayBold', 700);
+@include font-face("Raleway", '@/assets/fonts/Raleway/RalewayExtraBold', 800);
+@include font-face("Raleway", '@/assets/fonts/Raleway/RalewayBlack', 900);
+
+// Inter font-family
+@include font-face("Inter", '@/assets/fonts/Inter/InterRegular', 400);
+@include font-face("Inter", '@/assets/fonts/Inter/InterMedium', 500);
+@include font-face("Inter", '@/assets/fonts/Inter/InterSemiBold', 600);
+@include font-face("Inter", '@/assets/fonts/Inter/InterBold', 700);
+@include font-face("Inter", '@/assets/fonts/Inter/InterExtraBold', 800);
+@include font-face("Inter", '@/assets/fonts/Inter/InterBlack', 900);

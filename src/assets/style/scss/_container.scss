@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 15px;
+
+  @include breakpoint(xl) {
+    max-width: 1140px;
+  }
+  
+  @include breakpoint(lg) {
+    max-width: 992px;
+  }
+
+  @include breakpoint(md) {
+    max-width: 720px;
+  }
+
+  @include breakpoint(sm) {
+    max-width: 540px;
+  }
+
+  @include breakpoint(xs) {
+    max-width: auto;
+  }
+}

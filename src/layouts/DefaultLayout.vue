@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
+import MainHeader from '@/components/layout/DefaultHeader.vue'
 </script>
 
 <template>
   <div class="default-layout">
-    <header class="layout-header">Default header</header>
+    <main-header class="layout-header" />
 
     <main class="layout-main">
-      <RouterView />
+      <router-view />
     </main>
 
     <footer class="layout-footer">
@@ -26,10 +26,13 @@ import { RouterView } from 'vue-router'
     &-header {}
 
     &-main {
+      display: flex;
       flex: 1;
     }
 
-    &-footer {}
+    &-footer {
+      display: none;
+    }
   }
 }
 </style>

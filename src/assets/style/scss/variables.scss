@@ -2,3 +2,18 @@
 $primaryColor: #EB6440;
 $secondaryColor: #93BFCF;
 $fontColor: #060C0E;
+
+// Breakpoints
+$width-xs: 576px; // Mobile devices
+$width-sm: 768px; // Ipads, tablets
+$width-md: 992px; // small screens, laptops
+$width-lg: 1200px; // desktops, large screens
+$width-xl: 1400px; // desktops, large screens
+
+$breakpoints: (
+  xs: $width-xs,
+  sm: $width-sm,
+  md: $width-md,
+  lg: $width-lg,
+  xl: $width-xl,
+);

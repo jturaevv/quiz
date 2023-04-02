@@ -4,10 +4,15 @@
   box-sizing: border-box;
 }
 
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
-  font-family: "Manrope", sans-serif;
+  font-family: "Raleway";
   color: $fontColor;
-  font-size: 12px;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
 }
 
 button,
@@ -18,4 +23,8 @@ input {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+ul, li {
+  list-style: none;
 }
