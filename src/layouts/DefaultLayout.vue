@@ -31,7 +31,11 @@ import MainHeader from '@/components/layout/DefaultHeader.vue'
     }
 
     &-footer {
-      display: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 300px;
+      font-size: 48px;
     }
   }
 }
