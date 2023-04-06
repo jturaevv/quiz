@@ -1,7 +1,72 @@
+//First Palette
+$palette-first-0: #B3D1DD;
+$palette-first-5: #A4C2CE;
+$palette-first-10: #96B3BF;
+$palette-first-15: #87A5B0;
+$palette-first-20: #7896A1;
+$palette-first-30: #5B7884;
+$palette-first-40: #3D5B66;
+$palette-first-50: #203D48;
+$palette-first-60: #1A313A;
+$palette-first-70: #13252B;
+$palette-first-80: #0D181D;
+$palette-first-85: #0A1216;
+$palette-first-90: #060C0E;
+$palette-first-95: #030607;
+
+// Second Palette
+$palette-second-5: #F9FBFB;
+$palette-second-10: #F2F6F6;
+$palette-second-15: #ECF2F2;
+$palette-second-20: #E6EDED;
+$palette-second-30: #D9E4E5;
+$palette-second-40: #CDDBDC;
+$palette-second-50: #C0D2D3;
+$palette-second-60: #A2B4B5;
+$palette-second-70: #859798;
+$palette-second-80: #67797A;
+$palette-second-85: #586A6B;
+$palette-second-90: #4A5C5D;
+$palette-second-95: #3B4D4E;
+$palette-second-100: #2C3E3F;
+
+// Third Palette
+$palette-third-5: #FDFEFE;
+$palette-third-10: #FCFDFD;
+$palette-third-15: #FAFCFC;
+$palette-third-20: #F9FBFB;
+$palette-third-30: #F5F9F9;
+$palette-third-40: #F2F7F7;
+$palette-third-50: #EFF5F5;
+$palette-third-60: #DCE9E9;
+$palette-third-70: #C9DDDD;
+$palette-third-80: #B7D2D2;
+$palette-third-85: #ADCCCC;
+$palette-third-90: #A4C6C6;
+$palette-third-95: #9AC0C0;
+$palette-third-100: #91BABA;
+
+// Fourth Palette
+$palette-fourth-5: #FDF0EC;
+$palette-fourth-10: #FBE0D9;
+$palette-fourth-15: #F9D1C6;
+$palette-fourth-20: #F7C1B3;
+$palette-fourth-30: #F3A28C;
+$palette-fourth-40: #EF8366;
+$palette-fourth-50: #EB6440;
+$palette-fourth-60: #BD5033;
+$palette-fourth-70: #8E3C26;
+$palette-fourth-80: #60291A;
+$palette-fourth-85: #491F13;
+$palette-fourth-90: #31150D;
+$palette-fourth-95: #1A0B06;
+$palette-fourth-100: #030100;
+
 // Color
-$primaryColor: #EB6440;
+$primaryColor: $palette-fourth-50;
 $secondaryColor: #93BFCF;
-$fontColor: #060C0E;
+$fontColor: $palette-first-90;
+$pageColor: $palette-third-50;
 
 // Breakpoints
 $width-xs: 576px; // Mobile devices

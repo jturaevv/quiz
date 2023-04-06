@@ -10,8 +10,8 @@ const { t } = useLocale()
     <div class="container">
       <div class="intro-wrapper">
         <div class="intro-content">
-          <h1 class="intro-content__title" v-html="t('page.home.title')" />
-          <h2 class="intro-content__subtitle">{{ t('page.home.subtitle') }}</h2>
+          <h1 class="intro-content__title" v-html="t('page.home.intro.title')" />
+          <h3 class="intro-content__subtitle">{{ t('page.home.intro.subtitle') }}</h3>
           <input type="text" class="intro-content__search">
         </div>
 

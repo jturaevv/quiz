@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import HomeIntro from '@/components/page/home/HomeIntro.vue'
+import IntroSection from '@/components/page/home/IntroSection.vue'
+import SubjectSection from '@/components/page/home/SubjectSection.vue'
 
 </script>
 
 <template>
   <div class="home page">
-    <home-intro />
+    <intro-section />
+    <subject-section />
   </div>
 </template>

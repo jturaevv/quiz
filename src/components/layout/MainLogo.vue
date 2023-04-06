@@ -9,7 +9,7 @@ withDefaults(defineProps<{
 
 <template>
   <router-link :class="['main-logo', size]" :to="ROUTES.home">
-    <img class="logo__img" src="@/assets/icons/logo.png" alt="Main logo">
+    <img class="logo__img" src="@/assets/icons/logo.svg" alt="Main logo">
   </router-link>
 </template>
 
