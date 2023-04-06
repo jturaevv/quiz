@@ -2,7 +2,7 @@ import { createI18n } from 'vue-i18n'
 import ru from './locales/ru.json'
 import en from './locales/en.json'
 import uz from './locales/uz.json'
-import { AVAILABLE_LOCALE } from '@/services/constants/common'
+import { AVAILABLE_LOCALE } from '@/common/constants'
 
 let locale = 'ru' 
 const storageLocale = localStorage.getItem('locale')

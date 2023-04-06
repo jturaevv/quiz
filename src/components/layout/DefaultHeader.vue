@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { onBeforeMount, onBeforeUnmount, ref } from 'vue';
+import { onBeforeMount, onBeforeUnmount, ref } from 'vue'
 import MainLogo from '@/components/layout/MainLogo.vue'
-import { NAVIGATION_LINKS } from '@/services/constants/common'
+import { NAVIGATION_LINKS } from '@/common/constants.js'
 import { useLocale } from '@/composables/useLocale'
 import LocaleSwitcher from '@/components/layout/LocaleSwitcher.vue'
 import UserInfo from '@/components/layout/UserInfo.vue'
@@ -57,6 +57,10 @@ onBeforeUnmount(() => {
   padding: 15px 0;
   transition: 0.2s ease-in-out;
   z-index: 100;
+
+  @include breakpoint(xs) {
+    padding: 12px 0;
+  }
 
   &.active {
     background: white;

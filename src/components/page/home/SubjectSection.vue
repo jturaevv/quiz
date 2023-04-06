@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { cardImageRandomizer } from '@/common/helpers';
 import SubjectCard from '@/components/subject/SubjectCard.vue'
 import { useLocale } from '@/composables/useLocale';
 
@@ -17,8 +18,8 @@ const { t } = useLocale()
 
         <div class="subject-body">
           <div class="subject-list">
-            <template v-for="card in 12" :key="card">
-              <subject-card class="subject-list__item" />
+            <template v-for="card, index in 18" :key="card">
+              <subject-card class="subject-list__item" :img-src="cardImageRandomizer(index)" />
             </template>
           </div>
         </div>
@@ -44,6 +45,22 @@ const { t } = useLocale()
         font-weight: 700;
         line-height: 52px;
         text-align: center;
+
+        @include breakpoint(md) {
+          font-size: 38px;
+          line-height: 48px;
+          width: auto;
+        }
+
+        @include breakpoint(sm) {
+          font-size: 32px;
+          line-height: 42px;
+        }
+
+        @include breakpoint(xs) {
+          font-size: 24px;
+          line-height: 32px;
+        }
       }
 
       &__subtitle {
@@ -54,10 +71,16 @@ const { t } = useLocale()
         line-height: 21px;
         letter-spacing: 0em;
         text-align: center;
+
+        @include breakpoint(md) {
+          width: auto;
+        }
       }
     }
 
     &-body {
+      display: flex;
+      flex-direction: column;
       margin-top: 40px;
     }
 
@@ -66,6 +89,25 @@ const { t } = useLocale()
 
       display: grid;
       grid-template-columns: repeat(var(--items-per-row), 1fr);
+      grid-gap: 24px;
+      align-self: center;
+      width: 80%;
+
+      @include breakpoint(lg) {
+        width: auto;
+      }
+
+      @include breakpoint(md) {
+        --items-per-row: 1;
+      }
+
+      @include breakpoint(xs) {
+        grid-gap: 20px;
+      }
+
+      @include breakpoint(xxs) {
+        grid-gap: 15px;
+      }
     } 
   }
 }

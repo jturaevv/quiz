@@ -1,6 +1,6 @@
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import type { AVAILABLE_LOCALE } from '@/services/constants/common'
+import type { AVAILABLE_LOCALE } from '@/common/constants'
 
 export const useLocale = () => {
   const { t, locale, availableLocales } = useI18n()

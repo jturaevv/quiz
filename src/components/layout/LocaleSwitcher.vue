@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-import { useLocale } from '@/composables/useLocale';
-import type { AVAILABLE_LOCALE } from '@/services/constants/common';
+import { computed, ref } from 'vue'
+import { useLocale } from '@/composables/useLocale'
+import type { AVAILABLE_LOCALE } from '@/common/constants.js'
 
 const { currentLocale, t, availableLocales, setLocale } = useLocale()
 

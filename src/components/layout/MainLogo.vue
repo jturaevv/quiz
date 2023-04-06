@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import ROUTES from '@/services/constants/routes'
+import ROUTES from '@/common/routes'
+
 withDefaults(defineProps<{
   size?: 'sm' | 'md' | 'lg'
 }>(), {

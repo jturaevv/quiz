@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useLocale } from '@/composables/useLocale';
-import { DEFAULT_AVATAR } from '@/services/constants/common';
-import { computed } from 'vue';
+import { computed } from 'vue'
+import { useLocale } from '@/composables/useLocale'
+import { DEFAULT_AVATAR } from '@/common/constants.js'
 
 const { t } = useLocale()
 

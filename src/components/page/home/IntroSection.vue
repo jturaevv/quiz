@@ -29,12 +29,14 @@ const { t } = useLocale()
   background: $secondaryColor;
   padding: 130px 0;
   flex: 1;
+  min-height: 100vh;
 
   @include breakpoint(lg) {
     padding: 110px 0 0;
   }
 
   @include breakpoint(xs) {
+    min-height: auto;
     max-height: 100vh;
     overflow: hidden;
   }
@@ -80,10 +82,16 @@ const { t } = useLocale()
 
         @include breakpoint(sm) {
           font-size: 32px;
+          margin-bottom: 25px;
         }
 
         @include breakpoint(xs) {
           font-size: 28px;
+        }
+
+        @include breakpoint(xxs) {
+          font-size: 22px;
+          margin-bottom: 15px;
         }
 
         span {
@@ -97,6 +105,11 @@ const { t } = useLocale()
         font-weight: 400;
         line-height: 21px;
         margin-bottom: 30px;
+        
+        @include breakpoint(xxs) {
+          font-size: 14px;
+          line-height: 18px;
+        }
       }
     }
 
