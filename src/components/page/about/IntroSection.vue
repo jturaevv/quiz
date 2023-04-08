@@ -48,7 +48,6 @@ const { t } = useLocale()
     &__title {
       font-size: 48px;
       font-weight: 700;
-      line-height: 1.3;
       margin-bottom: 30px;
 
       @include breakpoint(md) {
@@ -78,7 +77,6 @@ const { t } = useLocale()
       font-family: Inter;
       font-size: 16px;
       font-weight: 400;
-      line-height: 1.3;
       margin-bottom: 40px;
 
       @include breakpoint(md) {

@@ -57,7 +57,6 @@ const { t } = useLocale()
       flex: 1 0 100%;
       font-size: 40px;
       font-weight: 700;
-      line-height: 1.3;
       text-align: center;
       margin-bottom: 30px;
       

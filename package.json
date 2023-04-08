@@ -11,7 +11,9 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@videojs-player/vue": "^1.0.0",
     "pinia": "^2.0.32",
+    "video.js": "^8.0.4",
     "vue": "^3.2.47",
     "vue-i18n": "9",
     "vue-router": "^4.1.6"
