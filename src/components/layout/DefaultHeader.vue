@@ -33,7 +33,7 @@ onBeforeUnmount(() => {
 
         <nav class="header-navigation">
           <template v-for="link in NAVIGATION_LINKS" :key="link">
-            <router-link class="header-navigation__link" active-class="active" :to="link.path">
+            <router-link class="header-navigation__link" exact-active-class="active" :to="link.path">
               {{ t(link.name) }}
             </router-link>
           </template>
@@ -58,8 +58,8 @@ onBeforeUnmount(() => {
   transition: 0.2s ease-in-out;
   z-index: 100;
 
-  @include breakpoint(xs) {
-    padding: 12px 0;
+  @include breakpoint(md) {
+    padding: 10px 0;
   }
 
   &.active {

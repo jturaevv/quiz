@@ -23,8 +23,23 @@ withDefaults(defineProps<{
   &.sm {}
   
   &.md {
-    width: 74px;
-    height: 52px;
+    width: 75px;
+    height: 75px;
+
+    @include breakpoint(md) {
+      width: 65px;
+      height: 65px;
+    }
+
+    @include breakpoint(sm) {
+      width: 55px;
+      height: 55px;
+    }
+
+    @include breakpoint(xs) {
+      width: 45px;
+      height: 45px;
+    }
   }
 
   &.lg {}

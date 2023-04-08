@@ -26,13 +26,13 @@ const { t } = useLocale()
 <style lang="scss">
 .home-intro {
   display: flex;
-  background: $secondaryColor;
-  padding: 130px 0;
   flex: 1;
   min-height: 100vh;
+  padding: 130px 0;
+  background: $secondaryColor;
 
-  @include breakpoint(lg) {
-    padding: 110px 0 0;
+  @include breakpoint(sm) {
+    padding: 100px 0 0;
   }
 
   @include breakpoint(xs) {
