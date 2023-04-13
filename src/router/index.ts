@@ -20,6 +20,18 @@ const router = createRouter({
           component: () => import('@/views/AboutView.vue')
         }
       ]
+    },
+    {
+      path: '/auth',
+      name: 'auth-layout',
+      component: () => import('@/layouts/AuthLayout.vue'),
+      children: [
+        {
+          path: 'login',
+          name: 'login',
+          component: () => import('@/views/auth/LoginView.vue')
+        }
+      ]
     }
   ]
 })

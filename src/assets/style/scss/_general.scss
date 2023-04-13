@@ -4,3 +4,9 @@
   flex: 1;
   background-color: $pageColor;
 }
+
+.auth-page {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}

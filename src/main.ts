@@ -4,6 +4,7 @@ import App from '@/App.vue'
 import router from '@/router'
 import i18n from '@/i18n'
 import components from '@/plugins/global-components'
+import '@/assets/style/scss/main.scss'
 
 const app = createApp(App)
 

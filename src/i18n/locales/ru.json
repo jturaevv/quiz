@@ -67,9 +67,17 @@
       "media": {
         "title": "Существующая теория <br/> <span>предоставляет</span>"
       }
+    },
+    "login": {
+      "title": "Вход в <span>аккаунт</span>",
+      "subtitle": "Как принято считать, явные признаки победы."
     }
   },
   "form": {
-    "email": "e-mail"
+    "login": "Логин",
+    "email": "E-mail",
+    "password": "Пароль",
+    "passwordRepetation": "Повторить пароль",
+    "phone": "Номер телефона"
   }
 } 
