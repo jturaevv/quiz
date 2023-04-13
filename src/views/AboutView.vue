@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import IntroSection from '@/components/page/about/IntroSection.vue'
 import ContentSection from '@/components/page/about/ContentSection.vue'
-import VideoSection from '@/components/page/about/VideoSection.vue'
+import MediaSection from '@/components/page/about/MediaSection.vue'
 
 </script>
 
@@ -9,6 +9,6 @@ import VideoSection from '@/components/page/about/VideoSection.vue'
   <div class="about page">
     <intro-section />
     <content-section />
-    <video-section />
+    <media-section />
   </div>
 </template>

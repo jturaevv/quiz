@@ -16,15 +16,26 @@ withDefaults(defineProps<{
 
 <template>
   <video-player
+    class="base-video-player"
     :src="src"
     :poster="poster"
-    controls
     :volume="volume"
     :type="type"
-  /> 
+    controls
+  >
+    <slot />
+  </video-player> 
 </template>
 
 <style src="video.js/dist/video-js.css"></style>
 <style lang="scss">
-  
+.base-video-player {
+  border: 2px solid $palette-fourth-40;
+  border-radius: 10px;
+  overflow: hidden;
+
+  .vjs-poster img {
+    background: $secondaryColor;
+  }
+}
 </style>
