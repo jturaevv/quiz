@@ -1,9 +1,14 @@
 <script setup lang="ts">
 import { useLocale } from '@/composables/useLocale';
+import { reactive } from 'vue';
 
 const { t } = useLocale()
 
-const 
+const form = reactive({
+  phone: '',
+  password: ''
+})
+
 </script>
 
 <template>
@@ -14,7 +19,7 @@ const
     </div>
 
     <form class="login-form" @submit.prevent>
-      <base-text-field class="form__item phone" outlined :title="t('form.phone')" />
+      <base-text-field v-model="form.phone" class="form__item phone" outlined :title="t('form.phone')" />
     </form>
   </div>
 </template>

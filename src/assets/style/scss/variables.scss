@@ -63,11 +63,14 @@ $palette-fourth-90: #31150D;
 $palette-fourth-95: #1A0B06;
 $palette-fourth-100: #030100;
 
-// Color
+// Colors
 $primaryColor: $palette-fourth-50;
 $secondaryColor: #93BFCF;
 $fontColor: $palette-first-90;
 $pageColor: $palette-third-50;
+
+// Animations
+$errorAnimation: error 0.5s;
 
 // Breakpoints
 $width-xxs: 400px; // Mobile devices
