@@ -2,8 +2,11 @@
 import { computed } from 'vue'
 import { useLocale } from '@/composables/useLocale'
 import { DEFAULT_AVATAR } from '@/common/constants.js'
+import { ROUTE } from '@/common/routes';
+import { useRouter } from 'vue-router';
 
 const { t } = useLocale()
+const router = useRouter()
 
 const userAvatar = computed(() => DEFAULT_AVATAR.default)
 const isAuthorized = computed(() => false)
@@ -16,7 +19,7 @@ const isAuthorized = computed(() => false)
       <img :src="userAvatar" alt="User avatar" class="user-avatar__img">
     </div>
 
-    <base-button v-else>{{ t('action.signIn') }}</base-button>
+    <base-button v-else @click="router.push(ROUTE.login)">{{ t('action.signIn') }}</base-button>
   </div>
 </template>
 

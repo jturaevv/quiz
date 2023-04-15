@@ -19,6 +19,10 @@
   min-height: 100vh;
   max-height: 100vh;
 
+  @include breakpoint(xs) {
+    max-height: none;
+  }
+
   .layout {
     &-image {
       display: flex;
@@ -26,6 +30,10 @@
       justify-content: center;
       flex: 1;
       background: $secondaryColor;
+
+      @include breakpoint(xs) {
+        display: none;
+      }
 
       img {
         width: 100%;
@@ -42,6 +50,19 @@
       flex: 1;
       padding: 24px;
       background: $pageColor;
+
+      @include breakpoint(md) {
+        max-width: 450px;
+      }
+
+      @include breakpoint(sm) {
+        max-width: 350px;
+        padding: 15px;
+      }
+
+      @include breakpoint(xs) {
+        max-width: 100%;
+      }
     }
   }
 }

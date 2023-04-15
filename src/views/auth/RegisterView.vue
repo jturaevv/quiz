@@ -7,34 +7,35 @@ const { t } = useLocale()
 
 const form = reactive({
   phone: '',
-  password: ''
+  password: '',
+  passwordRepetation: ''
 })
 
 </script>
 
 <template>
-  <div class="login auth-page">
-    <div class="login-header">
-      <h1 class="login-header__title" v-html="t('page.login.title')"></h1>
-      <h2 class="login-header__subtitle">{{ t('page.login.subtitle') }}</h2>
+  <div class="register auth-page">
+    <div class="register-header">
+      <h1 class="register-header__title" v-html="t('page.register.title')"></h1>
+      <h2 class="register-header__subtitle">{{ t('page.register.subtitle') }}</h2>
     </div>
 
-    <form class="login-form" @submit.prevent>
+    <form class="register-form" @submit.prevent>
       <base-phone-field v-model="form.phone" class="form__item phone" :title="t('form.phone')" />
       <base-password-field v-model="form.password" class="form__item password" :title="t('form.password')" />
+      <base-password-field v-model="form.passwordRepetation" class="form__item password-repeatation" :title="t('form.passwordRepetation')" />
 
       <div class="form-link-wrapper">
-        <router-link class="form__link" :to="ROUTE.register">{{ t('page.login.register') }}</router-link>
-        <router-link class="form__link" to="">{{ t('page.login.forgotPassword') }}</router-link>
+        <router-link class="form__link" :to="ROUTE.login">{{ t('page.register.login') }}</router-link>
       </div>
 
-      <base-button class="form__submit">{{ t('action.login') }}</base-button>
+      <base-button class="form__submit">{{ t('action.register') }}</base-button>
     </form>
   </div>
 </template>
 
 <style lang="scss">
-.login {
+.register {
   display: flex;
   flex-direction: column;
   max-width: 350px;
@@ -50,6 +51,7 @@ const form = reactive({
       font-weight: 700;
       font-size: 40px;
       line-height: 1.3;
+      color: $primaryColor;
       margin-bottom: 20px;
       text-align: center;
 
@@ -63,10 +65,6 @@ const form = reactive({
 
       @include breakpoint(xxs) {
         font-size: 22px;
-      }
-
-      span {
-        color: $primaryColor;
       }
     }
 
@@ -89,14 +87,15 @@ const form = reactive({
     &__item {
       flex: 1;
 
-      &.phone {
+      &.phone,
+      &.password {
         margin-bottom: 15px;
       }
     }
 
     &-link-wrapper {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       gap: 5px;
     }
 

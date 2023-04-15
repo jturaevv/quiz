@@ -9,6 +9,7 @@ const props = withDefaults(defineProps<{
   rules?: Rules
   disabled?: boolean
   color?: string
+  type: string
 }>(), {
   outlined: false,
   rules: () => [],
@@ -34,13 +35,13 @@ const value = computed({
 })
 
 const placeholder = computed(() => {
-  if (props.outlined) return ''
+  if (!props.outlined) return ''
 
   return props.title
 })
 
 const label = computed(() => {
-  if (!props.outlined) return ''
+  if (props.outlined) return ''
 
   return props.title
 })
@@ -78,7 +79,7 @@ function onBlurHandler(): void {
     :style="{ color }">
     <div class="field-input-wrapper">
       <div v-if="label" class="field__label">{{ label }}</div>
-      <input v-model="value" class="field__input" type="text" :placeholder="placeholder" :disabled="disabled"
+      <input v-model="value" class="field__input" :type="type" :placeholder="placeholder" :disabled="disabled"
         @input="onChangeHandler" @focus="onFocusHandler" @blur="onBlurHandler">
     </div>
 
@@ -111,7 +112,8 @@ function onBlurHandler(): void {
     .field {
       &__label {
         top: 0;
-        font-size: 12px;
+        font-size: 14px;
+        color: $fontColor;
         transform: translateY(-100%);
       }
     }
@@ -151,6 +153,7 @@ function onBlurHandler(): void {
     }
 
     &__input {
+      flex: 1;
       padding-top: var(--padding-y);
       padding-right: var(--padding-x);
       padding-bottom: var(--padding-y);

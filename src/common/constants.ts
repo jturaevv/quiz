@@ -1,17 +1,17 @@
-import ROUTES from '@/common/routes'
+import { ROUTE } from '@/common/routes'
 
 export const NAVIGATION_LINKS = [
   {
     name: 'routes.home',
-    path: ROUTES.home
+    path: ROUTE.home
   },
   {
     name: 'routes.lessons',
-    path: ROUTES.about
+    path: ROUTE.about
   },
   {
     name: 'routes.about',
-    path: ROUTES.about
+    path: ROUTE.about
   }
 ]
 

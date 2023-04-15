@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ROUTES from '@/common/routes'
+import { ROUTE } from '@/common/routes'
 
 withDefaults(defineProps<{
   size?: 'sm' | 'md' | 'lg'
@@ -9,7 +9,7 @@ withDefaults(defineProps<{
 </script>
 
 <template>
-  <router-link :class="['main-logo', size]" :to="ROUTES.home">
+  <router-link :class="['main-logo', size]" :to="ROUTE.home">
     <img class="logo__img" src="@/assets/icons/logo.svg" alt="Main logo">
   </router-link>
 </template>
