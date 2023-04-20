@@ -2,14 +2,16 @@
 import { computed } from 'vue'
 import { useLocale } from '@/composables/useLocale'
 import { DEFAULT_AVATAR } from '@/common/constants.js'
-import { ROUTE } from '@/common/routes';
-import { useRouter } from 'vue-router';
+import { ROUTE } from '@/common/routes'
+import { useRouter } from 'vue-router'
+import { useUserStore } from '@/stores/user'
 
 const { t } = useLocale()
 const router = useRouter()
+const userStore = useUserStore()
 
 const userAvatar = computed(() => DEFAULT_AVATAR.default)
-const isAuthorized = computed(() => false)
+const isAuthorized = computed(() => !!userStore.user)
 
 </script>
 

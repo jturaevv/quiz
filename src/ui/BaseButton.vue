@@ -3,15 +3,17 @@
 withDefaults(defineProps<{
   secondary?: boolean
   disabled?: boolean
+  type?: 'button' | 'submit' | 'reset'
 }>(), {
   secondary: false,
   disabled: false,
+  type: 'button'
 })
 
 </script>
 
 <template>
-  <button :class="['base-button', { secondary }]" :disabled="disabled">
+  <button :class="['base-button', { secondary }]" :disabled="disabled" :type="type">
     <slot />
   </button>
 </template>

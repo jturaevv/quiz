@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { CARDS } from '@/mock/aboutCard'
-import { useLocale } from '@/composables/useLocale';
+import { useLocale } from '@/composables/useLocale'
 
 const { t } = useLocale()
 </script>

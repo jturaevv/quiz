@@ -4,6 +4,8 @@ import BaseVideoPlayer from '@/ui/BaseVideoPlayer.vue'
 import BaseInput from '@/ui/BaseInput.vue'
 import BasePasswordField from '@/ui/BasePasswordField.vue'
 import BasePhoneField from '@/ui/BasePhoneField.vue'
+import BaseForm from '@/ui/BaseForm.vue'
+import BaseNumberField from '@/ui/BaseNumberField.vue'
 
 export default {
   BaseDropdown,
@@ -12,4 +14,6 @@ export default {
   BaseInput,
   BasePasswordField,
   BasePhoneField,
+  BaseForm,
+  BaseNumberField,
 }

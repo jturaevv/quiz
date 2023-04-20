@@ -1,14 +1,34 @@
 <script setup lang="ts">
-import { useLocale } from '@/composables/useLocale';
-import { reactive } from 'vue';
+import { useLocale } from '@/composables/useLocale'
+import { reactive } from 'vue'
 import { ROUTE } from '@/common/routes'
+import { useAuthStore } from '@/stores/auth'
+import type { ILoginForm } from '@/common/types'
+import { useRouter } from 'vue-router'
+import { Toast, Message } from '@/plugins/toastify'
 
 const { t } = useLocale()
+const authStore = useAuthStore()
+const router = useRouter()
 
-const form = reactive({
+const form = reactive<ILoginForm>({
   phone: '',
   password: ''
 })
+
+async function submitHandler() {
+  try {
+    await authStore.login({
+      phone_number: form.phone,
+      password: form.password,
+    })
+
+    router.push(ROUTE.home)
+  } catch (error) {
+    Toast.error(t(Message.NOT_VALID_CREDENTIALS))
+  }
+
+}
 
 </script>
 
@@ -19,7 +39,7 @@ const form = reactive({
       <h2 class="login-header__subtitle">{{ t('page.login.subtitle') }}</h2>
     </div>
 
-    <form class="login-form" @submit.prevent>
+    <base-form class="login-form" form-id="login-form" @submit="submitHandler">
       <base-phone-field v-model="form.phone" class="form__item phone" :title="t('form.phone')" />
       <base-password-field v-model="form.password" class="form__item password" :title="t('form.password')" />
 
@@ -28,8 +48,8 @@ const form = reactive({
         <router-link class="form__link" to="">{{ t('page.login.forgotPassword') }}</router-link>
       </div>
 
-      <base-button class="form__submit">{{ t('action.login') }}</base-button>
-    </form>
+      <base-button class="form__submit" type="submit">{{ t('action.login') }}</base-button>
+    </base-form>
   </div>
 </template>
 

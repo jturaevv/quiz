@@ -4,6 +4,9 @@ import BaseVideoPlayer from '@/ui/BaseVideoPlayer.vue'
 import BaseInput from '@/ui/BaseInput.vue'
 import BasePasswordField from '@/ui/BasePasswordField.vue'
 import BasePhoneField from '@/ui/BasePhoneField.vue'
+import BaseForm from '@/ui/BaseForm.vue'
+import BaseNumberField from '@/ui/BaseNumberField.vue'
+
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
@@ -13,5 +16,7 @@ declare module '@vue/runtime-core' {
     BaseInput: typeof BaseInput
     BasePasswordField: typeof BasePasswordField
     BasePhoneField: typeof BasePhoneField
+    BaseForm: typeof BaseForm
+    BaseNumberField: typeof BaseNumberField
   }
 }

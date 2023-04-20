@@ -1,15 +1,54 @@
 <script setup lang="ts">
-import { useLocale } from '@/composables/useLocale';
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue'
+import { useLocale } from '@/composables/useLocale'
+import { useAuthStore } from '@/stores/auth'
+import type { IRegisterForm } from '@/common/types'
+import StepOne from '@/components/page/register/StepOne.vue'
+import StepTwo from '@/components/page/register/StepTwo.vue'
+import { useRouter } from 'vue-router'
 import { ROUTE } from '@/common/routes'
 
 const { t } = useLocale()
+const router = useRouter()
+const authStore = useAuthStore()
 
-const form = reactive({
+const step = ref(1)
+const form = reactive<IRegisterForm>({
   phone: '',
   password: '',
-  passwordRepetation: ''
+  passwordRepetation: '',
+  code: null
 })
+
+async function submitStepOne(): Promise<void> {
+  try {
+    await authStore.registerStepOne({
+      phone_number: form.phone
+    })
+    
+    step.value++
+  } catch (error) {
+    // TODO
+    form.password = ''
+    form.passwordRepetation = ''
+  }
+
+}
+
+async function submitStepTwo(): Promise<void> {
+  try {
+    await authStore.registerStepTwo({
+      phone_number: form.phone,
+      password: form.password,
+      code: form.code!,
+    })
+    
+    router.push(ROUTE.home)
+  } catch (error) {
+    // TODO
+    form.code = null 
+  }
+}
 
 </script>
 
@@ -20,17 +59,10 @@ const form = reactive({
       <h2 class="register-header__subtitle">{{ t('page.register.subtitle') }}</h2>
     </div>
 
-    <form class="register-form" @submit.prevent>
-      <base-phone-field v-model="form.phone" class="form__item phone" :title="t('form.phone')" />
-      <base-password-field v-model="form.password" class="form__item password" :title="t('form.password')" />
-      <base-password-field v-model="form.passwordRepetation" class="form__item password-repeatation" :title="t('form.passwordRepetation')" />
-
-      <div class="form-link-wrapper">
-        <router-link class="form__link" :to="ROUTE.login">{{ t('page.register.login') }}</router-link>
-      </div>
-
-      <base-button class="form__submit">{{ t('action.register') }}</base-button>
-    </form>
+    <div class="register-body">
+      <step-one v-if="step === 1" v-model="form" @form:submit="submitStepOne" />
+      <step-two v-else-if="step === 2" v-model="form" @form:submit="submitStepTwo" />
+    </div>
   </div>
 </template>
 
@@ -74,45 +106,6 @@ const form = reactive({
       font-weight: 400;
       font-size: 16px;
       line-height: 1.3;
-    }
-  }
-
-  &-form {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 24px;
-  }
-
-  .form {
-    &__item {
-      flex: 1;
-
-      &.phone,
-      &.password {
-        margin-bottom: 15px;
-      }
-    }
-
-    &-link-wrapper {
-      display: flex;
-      justify-content: flex-end;
-      gap: 5px;
-    }
-
-    &__link {
-      font-family: 'Inter';
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 1.3;
-      text-decoration-line: underline;
-    }
-
-    &__submit {
-      margin-top: 40px;
-
-      @include breakpoint(xs) {
-        margin-top: 24px;
-      }
     }
   }
 }

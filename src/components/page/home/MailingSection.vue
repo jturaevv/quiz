@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useLocale } from '@/composables/useLocale';
+import { useLocale } from '@/composables/useLocale'
 
 const { t } = useLocale()
 

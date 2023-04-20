@@ -2,19 +2,20 @@ import { createI18n } from 'vue-i18n'
 import ru from './locales/ru.json'
 import en from './locales/en.json'
 import uz from './locales/uz.json'
-import { AVAILABLE_LOCALE } from '@/common/constants'
+import { AVAILABLE_LOCALE, DEFAULT_LOCALE, STORAGE } from '@/common/constants'
+import { useLocalStorage } from '@/composables/useLocalStorage'
 
-let locale = 'ru' 
-const storageLocale = localStorage.getItem('locale')
+const storageLocale = useLocalStorage<string>(STORAGE.LOCALE, DEFAULT_LOCALE)
+let locale = storageLocale.value
 
-if (storageLocale && Object.keys(AVAILABLE_LOCALE).includes(storageLocale)) {
-  locale = storageLocale
+if (storageLocale.value && Object.keys(AVAILABLE_LOCALE).includes(storageLocale.value)) {
+  locale = storageLocale.value
 }
 
 const i18n = createI18n({
   legacy: false,
   locale,
-  fallbackLocale: 'ru',
+  fallbackLocale: DEFAULT_LOCALE,
   allowComposition: true,
   messages: {
     ru,

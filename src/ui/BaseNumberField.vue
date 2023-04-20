@@ -3,7 +3,7 @@ import { computed, ref } from 'vue'
 import type { Rules } from '@/common/types'
 
 const props = withDefaults(defineProps<{
-  modelValue: string
+  modelValue: number | null
   title: string
   outlined?: boolean
   rules?: Rules
@@ -17,7 +17,7 @@ const props = withDefaults(defineProps<{
 })
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: string): void
+  (e: 'update:modelValue', value: number | null): void
 }>()
 
 const value = computed({
@@ -29,11 +29,9 @@ const value = computed({
   }
 })
 
-const type = ref<'password' | 'text'>('password')
-
 </script>
 
 <template>
-  <base-input v-model="value" :type="type" :title="title" :outlined="outlined" :rules="rules" :color="color"
+  <base-input v-model="value" type="number" :title="title" :outlined="outlined" :rules="rules" :color="color"
     :disabled="disabled" />
 </template>

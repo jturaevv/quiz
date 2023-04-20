@@ -82,11 +82,17 @@
       "login": "Есть аккаунт"
     }
   },
+  "toast": {
+    "error": {
+      "notValidCredentials": "Неверные данные пользователя"
+    }
+  },
   "form": {
     "login": "Логин",
     "email": "E-mail",
     "password": "Пароль",
     "passwordRepetation": "Повторить пароль",
-    "phone": "Номер телефона"
+    "phone": "Номер телефона",
+    "code": "Код"
   }
 } 

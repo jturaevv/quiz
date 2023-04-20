@@ -1,4 +1,4 @@
-import { CARD_IMAGES } from "@/common/constants"
+import { CARD_IMAGES } from '@/common/constants'
 
 export const cardImageRandomizer = (index: number): string => {
   const currentIndex = index % CARD_IMAGES.length
@@ -7,36 +7,36 @@ export const cardImageRandomizer = (index: number): string => {
 }
 
 export const convertToPhoneFormat = (value: string): string => {
-  let str = "";
+  let str = ''
   const formattedValue = convertFromPhoneFormat(value)
 
   for (let i = 0; i < formattedValue.length; i++) {
-    const currentLetter = formattedValue[i];
+    const currentLetter = formattedValue[i]
 
     switch (i) {
       case 0:
-        str += `+${currentLetter}`;
-        break;
+        str += `+${currentLetter}`
+        break
       case 3:
-        str += ` (${currentLetter}`;
-        break;
+        str += ` (${currentLetter}`
+        break
       case 4:
-        str += `${currentLetter}) `;
-        break;
+        str += `${currentLetter}) `
+        break
       case 8:
-        str += `-${currentLetter}`;
-        break;
+        str += `-${currentLetter}`
+        break
       case 10:
-        str += `-${currentLetter}`;
-        break;
+        str += `-${currentLetter}`
+        break
       default:
-        str += currentLetter;
-        break;
+        str += currentLetter
+        break
     }
   }
 
-  return str;
-};
+  return str
+}
 
 export const convertFromPhoneFormat = (value: string): string => {
   let res = ''
@@ -48,10 +48,10 @@ export const convertFromPhoneFormat = (value: string): string => {
       case ')':
       case ' ':
       case '-':
-        break;
+        break
       default:
         res += value[i]
-        break;
+        break
     }
   }
 

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { Rules } from '@/common/types';
-import { computed, ref } from 'vue';
+import type { Rules } from '@/common/types'
+import { computed, ref } from 'vue'
 
 const props = withDefaults(defineProps<{
-  modelValue: string
+  modelValue: string | number | null
   title: string
   outlined?: boolean
   rules?: Rules
@@ -18,7 +18,7 @@ const props = withDefaults(defineProps<{
 })
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: string): void
+  (e: 'update:modelValue', value: string | number | null): void
 }>()
 
 const isToched = ref(false)
@@ -46,9 +46,13 @@ const label = computed(() => {
   return props.title
 })
 
-function onChangeHandler(event: Event): void {
+function onChangeHandler(): void {
   if (!isToched.value) return
 
+  errorHandler()
+}
+
+function errorHandler() {
   for (let i = 0; i < props.rules.length; i++) {
     const rule = props.rules[i]
 

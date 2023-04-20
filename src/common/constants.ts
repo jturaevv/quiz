@@ -1,5 +1,8 @@
 import { ROUTE } from '@/common/routes'
 
+export const API_URL = import.meta.env.VITE_API_URL || ''
+export const BASE_API_URL = API_URL + '/api'
+
 export const NAVIGATION_LINKS = [
   {
     name: 'routes.home',
@@ -21,6 +24,8 @@ export enum AVAILABLE_LOCALE {
   en = 'en',
 }
 
+export const DEFAULT_LOCALE = AVAILABLE_LOCALE.ru
+
 // export const DEFAULT_AVATAR = 'src/assets/images/avatar.png'
 export const DEFAULT_AVATAR = await import('@/assets/images/avatar.png')
 
@@ -36,3 +41,9 @@ export const CARD_IMAGES = [
   await import('@/assets/images/subject/subject-9.png'),
   await import('@/assets/images/subject/subject-10.png'),
 ]
+
+export enum STORAGE {
+  ACCESS_TOKEN = 'access_token',
+  REFRESH_TOKEN = 'refresh_token',
+  LOCALE = 'locale',
+}

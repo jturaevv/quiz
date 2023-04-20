@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/HomeView.vue'
 import { ROUTE } from '@/common/routes'
+import { AuthController } from '@/common/middlewares'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +27,7 @@ const router = createRouter({
       path: '/auth',
       name: 'auth-layout',
       component: () => import('@/layouts/AuthLayout.vue'),
+      beforeEnter: [AuthController],
       children: [
         {
           path: ROUTE.login,

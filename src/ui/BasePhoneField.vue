@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-import type { Rules } from '@/common/types';
-import { convertFromPhoneFormat, convertToPhoneFormat } from '@/common/helpers';
+import { computed } from 'vue'
+import type { Rules } from '@/common/types'
+import { convertFromPhoneFormat, convertToPhoneFormat } from '@/common/helpers'
 
 const props = withDefaults(defineProps<{
   modelValue: string
@@ -31,10 +31,10 @@ const value = computed({
 })
 
 const checkPhoneValidity = (event: KeyboardEvent) => {
-  const keycode = event.which;
+  const keycode = event.which
   
   if (event.ctrlKey && keycode === 86) {
-    event.preventDefault();
+    event.preventDefault()
   }
 
   if (
@@ -50,9 +50,9 @@ const checkPhoneValidity = (event: KeyboardEvent) => {
         (keycode >= 96 && keycode <= 105))
     )
   ) {
-    event.preventDefault();
+    event.preventDefault()
   }
-};
+}
 
 </script>
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { cardImageRandomizer } from '@/common/helpers';
+import { cardImageRandomizer } from '@/common/helpers'
 import SubjectCard from '@/components/subject/SubjectCard.vue'
-import { useLocale } from '@/composables/useLocale';
+import { useLocale } from '@/composables/useLocale'
 
 const { t } = useLocale()
 

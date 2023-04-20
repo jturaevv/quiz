@@ -1,3 +1,7 @@
-export interface Endpoint {}
-
-export const endpoint: Endpoint = {}
+export const ENDPOINT = {
+  login: () => '/token/',
+  refreshToken: () => '/token/refresh/',
+  register: () => '/users/registration/',
+  verification: () => '/users/check_verification_code/',
+  me: () => '/users/me/',
+}

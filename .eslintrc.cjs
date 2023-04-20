@@ -14,6 +14,9 @@ module.exports = {
   rules: {
     'vue/multi-word-component-names': ['error', {
       'ignores': ['default', 'index']
-    }]
+    }],
+    'quotes': ['error', 'single'],
+    'semi': ['error', 'never'],
+    '@typescript-eslint/no-unused-vars': ['error']
   }
 }

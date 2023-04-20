@@ -1,13 +1,15 @@
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import type { AVAILABLE_LOCALE } from '@/common/constants'
+import { DEFAULT_LOCALE, STORAGE, type AVAILABLE_LOCALE } from '@/common/constants'
+import { useLocalStorage } from '@/composables/useLocalStorage'
 
 export const useLocale = () => {
   const { t, locale, availableLocales } = useI18n()
+  const storageLocale = useLocalStorage<string>(STORAGE.LOCALE, DEFAULT_LOCALE)
 
   const setLocale = (lang: AVAILABLE_LOCALE) => {
     locale.value = lang
-    localStorage.setItem('locale', lang)
+    storageLocale.value = lang
   }
 
   const currentLocale = computed((): AVAILABLE_LOCALE => {
