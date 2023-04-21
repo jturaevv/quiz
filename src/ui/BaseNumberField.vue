@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import type { Rules } from '@/common/types'
 
 const props = withDefaults(defineProps<{

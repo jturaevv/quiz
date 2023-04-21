@@ -84,7 +84,22 @@
   },
   "toast": {
     "error": {
-      "notValidCredentials": "Неверные данные пользователя"
+      "login": {
+        "credentials": "Неверные данные пользователя"
+      },
+      "register": {
+        "userExist": "Пользовател с таким номером существует",
+        "verificationCode": "Неправильный код подтверждения"
+      }
+    },
+    "success": {
+      "login": {
+        "credentials": "Успешно авторизовано!"
+      },
+      "register": {
+        "verificationCode": "Отправлень код подтверждения!",
+        "created": "Пользовател успешно создано!"
+      }
     }
   },
   "form": {

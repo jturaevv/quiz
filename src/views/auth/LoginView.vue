@@ -23,9 +23,11 @@ async function submitHandler() {
       password: form.password,
     })
 
+    Toast.success(t(Message.SUCCESS.LOGIN.CREDENTIALS))
     router.push(ROUTE.home)
   } catch (error) {
-    Toast.error(t(Message.NOT_VALID_CREDENTIALS))
+    Toast.error(t(Message.ERROR.LOGIN.CREDENTIALS))
+    form.password = ''
   }
 
 }

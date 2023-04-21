@@ -171,6 +171,18 @@ function onBlurHandler(): void {
       border-bottom: 2px solid;
       outline: none;
       transition: 0.2s ease;
+
+      /* Chrome, Safari, Edge, Opera */
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      /* Firefox */
+      &[type=number] {
+        appearance: textfield;
+      }
     }
   }
 }

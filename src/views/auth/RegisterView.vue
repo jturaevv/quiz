@@ -7,6 +7,8 @@ import StepOne from '@/components/page/register/StepOne.vue'
 import StepTwo from '@/components/page/register/StepTwo.vue'
 import { useRouter } from 'vue-router'
 import { ROUTE } from '@/common/routes'
+import { Message, Toast } from '@/plugins/toastify'
+import { AUTH_ERROR_FIELD, AUTH_NON_FIELD_ERROR_STATUS, VERIFICATION_CODE_ERROR_STATUS } from '@/services/auth/auth.interface'
 
 const { t } = useLocale()
 const router = useRouter()
@@ -26,9 +28,16 @@ async function submitStepOne(): Promise<void> {
       phone_number: form.phone
     })
     
+
+    Toast.success(t(Message.SUCCESS.REGISTER.VERIFICATION_CODE))
     step.value++
-  } catch (error) {
-    // TODO
+  } catch (error) { // @ts-ignore
+    const data = error.response.data
+
+    if (data[AUTH_ERROR_FIELD.NON_FIELD_ERROR].includes(AUTH_NON_FIELD_ERROR_STATUS.USER_EXIST)) {
+      Toast.error(t(Message.ERROR.REGISTER.USER_EXIST))
+    }
+
     form.password = ''
     form.passwordRepetation = ''
   }
@@ -43,9 +52,15 @@ async function submitStepTwo(): Promise<void> {
       code: form.code!,
     })
     
+    Toast.success(t(Message.SUCCESS.REGISTER.USER_CREATED))
     router.push(ROUTE.home)
-  } catch (error) {
-    // TODO
+  } catch (error) {// @ts-ignore
+    const data = error.response.data
+
+    if (data[AUTH_ERROR_FIELD.VERIFICATION_CODE].includes(VERIFICATION_CODE_ERROR_STATUS.INVALID_CODE)) {
+      Toast.error(t(Message.ERROR.REGISTER.INVALID_CODE))
+    }
+
     form.code = null 
   }
 }

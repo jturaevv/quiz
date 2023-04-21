@@ -50,6 +50,10 @@ export enum AUTH_NON_FIELD_ERROR_STATUS {
   USER_EXIST = 'User already exists'
 }
 
+export enum VERIFICATION_CODE_ERROR_STATUS {
+  INVALID_CODE = 'Invalid verification code'
+}
+
 export enum AUTH_ERROR_FIELD {
   NON_FIELD_ERROR = 'non_field_errors',
   PHONE_NUMBER = 'phone_number',
