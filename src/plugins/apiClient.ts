@@ -38,6 +38,8 @@ instance.interceptors.response.use(
       config._retry = true
 
       try {
+        if (!authStore.accessToken) return
+
         await authStore.refresh()
 
         config.headers = {

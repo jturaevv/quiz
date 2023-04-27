@@ -1,13 +1,6 @@
 <script setup lang="ts">
-import { onBeforeMount } from 'vue'
 import MainHeader from '@/components/layout/DefaultHeader.vue'
-import { useUserStore } from '@/stores/user'
 
-const userStore = useUserStore()
-
-onBeforeMount(async () => {
-  userStore.getUser()
-})
 </script>
 
 <template>

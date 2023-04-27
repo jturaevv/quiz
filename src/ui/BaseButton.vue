@@ -13,7 +13,7 @@ withDefaults(defineProps<{
 </script>
 
 <template>
-  <button :class="['base-button', { secondary }]" :disabled="disabled" :type="type">
+  <button :class="['base-button', { secondary }]" v-bind="$attrs">
     <slot />
   </button>
 </template>

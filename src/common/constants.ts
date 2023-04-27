@@ -18,6 +18,24 @@ export const NAVIGATION_LINKS = [
   }
 ]
 
+export const PROFILE_LINKS = [
+  {
+    name: 'routes.dashboard',
+    path: ROUTE.dashboard,
+    icon: 'dashboard-icon',
+  },
+  {
+    name: 'routes.settings',
+    path: ROUTE.settings,
+    icon: 'settings-icon',
+  },
+  // {
+  //   name: 'routes.support',
+  //   path: ROUTE.about,
+  //   icon: 'support-icon',
+  // },
+]
+
 export enum AVAILABLE_LOCALE {
   ru = 'ru',
   uz = 'uz',
@@ -47,3 +65,7 @@ export enum STORAGE {
   REFRESH_TOKEN = 'refresh_token',
   LOCALE = 'locale',
 }
+
+export const SPRITE = await import('@/assets/icons/sprite.svg')
+
+export const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/

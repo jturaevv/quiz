@@ -17,7 +17,7 @@ const isAuthorized = computed(() => !!userStore.user)
 
 <template>
   <div class="user-info">
-    <div v-if="isAuthorized" class="user-avatar">
+    <div v-if="isAuthorized" class="user-avatar" @click="router.push(ROUTE.profileIndex)">
       <img :src="userAvatar" alt="User avatar" class="user-avatar__img">
     </div>
 

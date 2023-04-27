@@ -1,4 +1,4 @@
-export type Rule = (value: any) => string | false
+export type Rule = (value: any) => string | true
 
 export type Rules = Rule[]
 

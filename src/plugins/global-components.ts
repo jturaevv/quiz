@@ -6,6 +6,7 @@ import BasePasswordField from '@/ui/BasePasswordField.vue'
 import BasePhoneField from '@/ui/BasePhoneField.vue'
 import BaseForm from '@/ui/BaseForm.vue'
 import BaseNumberField from '@/ui/BaseNumberField.vue'
+import BaseTextField from '@/ui/BaseTextField.vue'
 
 export default {
   BaseDropdown,
@@ -16,4 +17,5 @@ export default {
   BasePhoneField,
   BaseForm,
   BaseNumberField,
+  BaseTextField,
 }

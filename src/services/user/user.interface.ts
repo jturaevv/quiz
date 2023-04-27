@@ -9,8 +9,8 @@ export interface IUserResponse {
   first_name: string
   last_name: string
   mail: string
-  age: number
-  photo: null
+  age: number | null
+  photo: string | null
 }
 
 export interface IUser {
@@ -19,6 +19,15 @@ export interface IUser {
   firstName: string
   lastName: string
   mail: string
-  age: number
-  photo: null
+  age: number | null
+  photo: string | null
+}
+
+export interface IUserUpdateForm {
+  name: string,
+  surname: string,
+  phone: string,
+  email: string,
+  age: number | null,
+  photo: string | File | null
 }

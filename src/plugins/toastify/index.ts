@@ -1,4 +1,4 @@
-import { toast, type ToastOptions } from 'vue3-toastify'
+import { toast, type ToastOptions, type ToastPromiseParams } from 'vue3-toastify'
 import { TOAST_MESSAGE } from './types'
 
 const DEFAULT_OPTIONS: ToastOptions = {
@@ -38,6 +38,17 @@ export namespace Toast {
       ...options,
       ...DEFAULT_OPTIONS,
     })
+  }
+
+  export const promise = async (request: Promise<any>, messageParams: ToastPromiseParams, options: ToastOptions = {}) => {
+    return await toast.promise(
+      request,
+      messageParams, 
+      {
+        ...options,
+        ...DEFAULT_OPTIONS,
+      }
+    )
   }
 }
 

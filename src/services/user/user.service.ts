@@ -4,6 +4,7 @@ import type {
   IUser,
   IUserResponse,
 } from '@/services/user/user.interface'
+import { API_URL } from '@/common/constants'
 
 export default class UserService {
   constructor (readonly client: Axios) {
@@ -11,6 +12,10 @@ export default class UserService {
 
   async me (): Promise<AxiosResponse<IUserResponse>> {
     return await this.client.get(ENDPOINT.me())
+  }
+
+  async update ({ id, formData }: { id: number, formData: FormData}): Promise<AxiosResponse<IUserResponse>> {
+    return await this.client.patch(ENDPOINT.userUpdate(id), formData)
   }
 }
 
@@ -22,7 +27,7 @@ export class User implements IUser {
      this.lastName = user.last_name
      this.mail = user.mail
      this.age = user.age
-     this.photo = user.photo
+     this.photo = user.photo && `${API_URL}${user.photo}` 
   }
 
   id: number
@@ -30,6 +35,6 @@ export class User implements IUser {
   firstName: string
   lastName: string
   mail: string
-  age: number
-  photo: null
+  age: number | null
+  photo: string | null
 }

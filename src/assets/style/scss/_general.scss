@@ -2,11 +2,17 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  background-color: $pageColor;
 }
 
 .auth-page {
   display: flex;
   flex-direction: column;
   flex: 1;
+}
+
+.profile-page {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 50px 50px 50px 110px;
 }

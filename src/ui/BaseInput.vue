@@ -49,23 +49,24 @@ const label = computed(() => {
 function onChangeHandler(): void {
   if (!isToched.value) return
 
-  errorHandler()
+  validate()
 }
 
-function errorHandler() {
-  for (let i = 0; i < props.rules.length; i++) {
-    const rule = props.rules[i]
+function validate() {
+  errorMessage.value = ''
 
-    // @ts-ignore
-    const error = rule(event.target.value)
+  if (!isToched.value) isToched.value = true
 
-    if (error) {
+  for(let rule of props.rules) {
+    const error = rule(value.value)
+
+    if (error !== true) {
       errorMessage.value = error
-      break
+      return false
     }
-
-    errorMessage.value = null
   }
+
+  return true
 }
 
 function onFocusHandler(): void {
@@ -76,10 +77,12 @@ function onBlurHandler(): void {
   isToched.value = true
   isFocused.value = false
 }
+
+defineExpose({ validate })
 </script> 
 
 <template>
-  <div :class="['base-text-field', { error: errorMessage, focused: isFocused, disabled: disabled, filled: value }]"
+  <div :class="['base-field form__element', { error: errorMessage, focused: isFocused, disabled: disabled, filled: value }]"
     :style="{ color }">
     <div class="field-input-wrapper">
       <div v-if="label" class="field__label">{{ label }}</div>
@@ -96,7 +99,7 @@ function onBlurHandler(): void {
 </template>
 
 <style lang="scss">
-.base-text-field {
+.base-field {
   --padding-x: 12px;
   --padding-y: 6px;
 
@@ -183,6 +186,16 @@ function onBlurHandler(): void {
       &[type=number] {
         appearance: textfield;
       }
+    }
+
+    &__error {
+      font-family: 'Inter';
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 1.5;
+      padding-top: 5px;
+      padding-right: var(--padding-x);
+      padding-left: var(--padding-x);
     }
   }
 }

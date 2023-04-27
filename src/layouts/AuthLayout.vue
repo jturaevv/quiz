@@ -49,7 +49,6 @@
       max-width: 600px;
       flex: 1;
       padding: 24px;
-      background: $pageColor;
 
       @include breakpoint(md) {
         max-width: 450px;

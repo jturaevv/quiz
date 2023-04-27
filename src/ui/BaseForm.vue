@@ -1,33 +1,40 @@
-<script setup lang="ts">
-import { onBeforeUpdate, ref } from 'vue'
+<script lang="ts" setup>
+import { getCurrentInstance } from 'vue'
+
+const instance = getCurrentInstance()
 
 const emit = defineEmits<{
   (e: 'submit'): void
-  (e: 'update:modelValue', value: boolean): void
-}>()
-const props = defineProps<{
-  formId: string
 }>()
 
-const form = ref<Element | null>()
+function getChildComponents(): HTMLCollection {
+  return instance!.vnode.el!.getElementsByClassName('form__element')
+}
 
-function defineFormRef(el: Element) {
-  form.value = el
+function validateChildComponents(children: HTMLCollection) {
+  let isValid = true
 
-  return props.formId
+  // @ts-ignore
+  for (const child of children) {
+    if (!child.__vnode.ctx.exposed.validate()) {
+      isValid = false
+    }
+  }
+
+  return isValid
 }
 
 function submitHandler() {
+  const children = getChildComponents()
+  
+  if (!validateChildComponents(children)) return
+  
   emit('submit')
 }
-
-onBeforeUpdate(() => {
-  form.value = null
-})
 </script>
 
 <template>
-  <form :ref="defineFormRef" @submit.prevent="submitHandler">
+  <form @submit.prevent="submitHandler">
     <slot />
   </form>
 </template>
