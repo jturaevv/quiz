@@ -10,7 +10,11 @@ const { t } = useLocale()
 const router = useRouter()
 const userStore = useUserStore()
 
-const userAvatar = computed(() => DEFAULT_AVATAR.default)
+const userAvatar = computed(() => {
+  if (userStore.user?.photo) return userStore.user.photo
+
+  return DEFAULT_AVATAR.default
+})
 const isAuthorized = computed(() => !!userStore.user)
 
 </script>

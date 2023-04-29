@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import type { IRegisterForm } from '@/common/types'
 import { useLocale } from '@/composables/useLocale'
 import { ROUTE } from '@/common/routes'
+import { RULE } from '@/common/rules'
 
 const { t } = useLocale()
 
@@ -31,10 +32,10 @@ function submit() {
 
 <template>
   <base-form class="register-form" form-id="register-form-step-one" @submit="submit">
-    <base-phone-field v-model="form.phone" class="form__item phone" :title="t('form.phone')" />
-    <base-password-field v-model="form.password" class="form__item password" :title="t('form.password')" />
-    <base-password-field v-model="form.passwordRepetation" class="form__item password-repeatation"
-      :title="t('form.passwordRepetation')" />
+    <base-phone-field v-model="form.phone" class="form__item phone" :title="t('form.phone')" :rules="[...RULE.required(), ...RULE.phone()]" />
+    <base-password-field v-model="form.password" class="form__item password" :title="t('form.password')" :rules="[...RULE.required(), ...RULE.password()]" />
+    <base-password-field v-model="form.passwordRepetation" :key="form.password" class="form__item password-repeatation"
+      :title="t('form.passwordRepetation')" :rules="[...RULE.passwordRepeat(form.password)]" />
 
     <div class="form-link-wrapper">
       <router-link class="form__link" :to="ROUTE.login">{{ t('page.register.login') }}</router-link>

@@ -26,4 +26,28 @@ export namespace RULE {
       (value: number) => value > min || customMessage || t('validation.minNumber', { min })
     ]
   }
+
+  export function phone (customMessage?: string): Rules {
+    const { t } = useLocale()
+
+    return [
+      (value: string) => value.length === 19 || customMessage || t('validation.phone')
+    ]
+  }
+
+  export function password (min: number = 8, customMessage?: string): Rules {
+    const { t } = useLocale()
+
+    return [
+      (value: string) => value.length >= min || customMessage || t('validation.password', { min })
+    ]
+  }
+
+  export function passwordRepeat (password: string, customMessage?: string): Rules {
+    const { t } = useLocale()
+
+    return [
+      (value: string) => value === password || customMessage || t('validation.passwordRepeat')
+    ]
+  }
 }

@@ -31,6 +31,8 @@ function submitHandler() {
 }
 
 function init(newValue: IUser): void {
+  if (!newValue) return
+  
   form.name = newValue.firstName
   form.surname = newValue.lastName
   form.phone = newValue.phoneNumber

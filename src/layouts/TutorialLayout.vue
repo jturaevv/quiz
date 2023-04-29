@@ -4,7 +4,7 @@ import MainHeader from '@/components/layout/DefaultHeader.vue'
 </script>
 
 <template>
-  <div class="default-layout">
+  <div class="tutorial-layout">
     <main-header class="layout-header" />
 
     <main class="layout-main">
@@ -18,7 +18,7 @@ import MainHeader from '@/components/layout/DefaultHeader.vue'
 </template>
 
 <style lang="scss">
-.default-layout {
+.tutorial-layout {
   display: flex;
   flex-direction: column;
   min-height: 100vh;

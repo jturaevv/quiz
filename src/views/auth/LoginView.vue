@@ -1,35 +1,45 @@
 <script setup lang="ts">
 import { useLocale } from '@/composables/useLocale'
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 import { ROUTE } from '@/common/routes'
 import { useAuthStore } from '@/stores/auth'
 import type { ILoginForm } from '@/common/types'
 import { useRouter } from 'vue-router'
 import { Toast, Message } from '@/plugins/toastify'
+import { RULE } from '@/common/rules'
 
 const { t } = useLocale()
 const authStore = useAuthStore()
 const router = useRouter()
 
+const isLoading = ref(false)
 const form = reactive<ILoginForm>({
   phone: '',
   password: ''
 })
 
-async function submitHandler() {
-  try {
-    await authStore.login({
+function submitHandler() {
+  if (isLoading.value) return
+
+  isLoading.value = true
+
+  Toast.promise(
+    authStore.login({
       phone_number: form.phone,
       password: form.password,
-    })
-
-    Toast.success(t(Message.SUCCESS.LOGIN.CREDENTIALS))
+    }),
+    {
+      pending: t(Message.PENDING.DEFAULT.WAITING),
+      success: t(Message.SUCCESS.LOGIN.CREDENTIALS),
+      error: t(Message.ERROR.LOGIN.CREDENTIALS)
+    }
+  ).then(() => {
     router.push(ROUTE.home)
-  } catch (error) {
-    Toast.error(t(Message.ERROR.LOGIN.CREDENTIALS))
+  }).catch(() => {
     form.password = ''
-  }
-
+  }).finally(() => {
+    isLoading.value = false
+  })
 }
 
 </script>
@@ -42,8 +52,10 @@ async function submitHandler() {
     </div>
 
     <base-form class="login-form" form-id="login-form" @submit="submitHandler">
-      <base-phone-field v-model="form.phone" class="form__item phone" :title="t('form.phone')" />
-      <base-password-field v-model="form.password" class="form__item password" :title="t('form.password')" />
+      <base-phone-field v-model="form.phone" class="form__item phone" :title="t('form.phone')"
+        :rules="[...RULE.required(), ...RULE.phone()]" />
+      <base-password-field v-model="form.password" class="form__item password" :title="t('form.password')"
+        :rules="[...RULE.required(), ...RULE.password()]" />
 
       <div class="form-link-wrapper">
         <router-link class="form__link" :to="ROUTE.register">{{ t('page.login.register') }}</router-link>

@@ -15,6 +15,7 @@ const router = useRouter()
 const authStore = useAuthStore()
 
 const step = ref(1)
+const isLoading = ref(false)
 const form = reactive<IRegisterForm>({
   phone: '',
   password: '',
@@ -22,16 +23,21 @@ const form = reactive<IRegisterForm>({
   code: null
 })
 
-async function submitStepOne(): Promise<void> {
-  try {
-    await authStore.registerStepOne({
-      phone_number: form.phone
-    })
-    
+function submitStepOne(): void {
+  if (isLoading.value) return
+  isLoading.value = true
 
-    Toast.success(t(Message.SUCCESS.REGISTER.VERIFICATION_CODE))
+  Toast.promise(
+    authStore.registerStepOne({
+      phone_number: form.phone
+    }),
+    {
+      pending: t(Message.PENDING.DEFAULT.WAITING),
+      success: t(Message.SUCCESS.REGISTER.VERIFICATION_CODE),
+    }
+  ).then(() => {
     step.value++
-  } catch (error) { // @ts-ignore
+  }).catch((error) => {
     const data = error.response.data
 
     if (data[AUTH_ERROR_FIELD.NON_FIELD_ERROR].includes(AUTH_NON_FIELD_ERROR_STATUS.USER_EXIST)) {
@@ -40,21 +46,29 @@ async function submitStepOne(): Promise<void> {
 
     form.password = ''
     form.passwordRepetation = ''
-  }
-
+  }).finally(() => {
+    isLoading.value = false
+  })
 }
 
-async function submitStepTwo(): Promise<void> {
-  try {
-    await authStore.registerStepTwo({
+function submitStepTwo(): void {
+  if (isLoading.value) return
+
+  isLoading.value = true
+
+  Toast.promise(
+    authStore.registerStepTwo({
       phone_number: form.phone,
       password: form.password,
       code: form.code!,
-    })
-    
-    Toast.success(t(Message.SUCCESS.REGISTER.USER_CREATED))
+    }),
+    {
+      pending: t(Message.PENDING.DEFAULT.WAITING),
+      success: t(Message.SUCCESS.REGISTER.USER_CREATED),
+    }
+  ).then(() => {
     router.push(ROUTE.home)
-  } catch (error) {// @ts-ignore
+  }).catch((error) => {
     const data = error.response.data
 
     if (data[AUTH_ERROR_FIELD.VERIFICATION_CODE].includes(VERIFICATION_CODE_ERROR_STATUS.INVALID_CODE)) {
@@ -62,7 +76,9 @@ async function submitStepTwo(): Promise<void> {
     }
 
     form.code = null 
-  }
+  }).finally(() => {
+    isLoading.value = false
+  })
 }
 
 </script>

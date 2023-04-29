@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import type { IRegisterForm } from '@/common/types'
 import { useLocale } from '@/composables/useLocale'
-import { ROUTE } from '@/common/routes'
+import { RULE } from '@/common/rules'
 
 const { t } = useLocale()
 
@@ -31,7 +31,7 @@ function submit() {
 
 <template>
   <base-form class="register-form" form-id="register-form-step-two" @submit="submit">
-    <base-number-field v-model="form.code" class="form__item code" :title="t('form.code')" />
+    <base-number-field v-model="form.code" class="form__item code" :title="t('form.code')" :rules="RULE.required()" />
 
     <div class="form__actions">
       <base-button type="submit" class="form__submit">{{ t('action.register') }}</base-button>
