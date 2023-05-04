@@ -4,5 +4,6 @@ export const ENDPOINT = {
   register: () => '/users/registration/',
   verification: () => '/users/check_verification_code/',
   me: () => '/users/me/',
-  userUpdate: (id: number) => `/users/${id}/`
+  userUpdate: (id: number) => `/users/${id}/`,
+  subjects: () => '/subjects'
 }

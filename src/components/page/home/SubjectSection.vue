@@ -2,8 +2,16 @@
 import { cardImageRandomizer } from '@/common/helpers'
 import SubjectCard from '@/components/subject/SubjectCard.vue'
 import { useLocale } from '@/composables/useLocale'
+import type { ISubject } from '@/services/tutorial/tutorial.interface'
 
 const { t } = useLocale()
+
+withDefaults(defineProps<{
+  list: ISubject[]
+  loading?: boolean
+}>(), {
+  loading: false
+})
 
 </script>
 
@@ -16,13 +24,15 @@ const { t } = useLocale()
           <h2 class="subject-header__subtitle">{{ t('page.home.subject.subtitle') }}</h2>
         </div>
 
-        <div class="subject-body">
+        <div v-if="!loading" class="subject-body">
           <div class="subject-list">
-            <template v-for="card, index in 18" :key="card">
-              <subject-card class="subject-list__item" :img-src="cardImageRandomizer(index)" />
+            <template v-for="subject, index in list" :key="`subject-${subject.id}`">
+              <subject-card class="subject-list__item" :subject="subject" :img-src="cardImageRandomizer(index)" />
             </template>
           </div>
         </div>
+
+        <base-loader v-else />
       </div>
     </div>
   </section>

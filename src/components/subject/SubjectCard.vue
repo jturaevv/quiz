@@ -1,26 +1,26 @@
 <script setup lang="ts">
-import { useLocale } from '@/composables/useLocale'
-
-const { t } = useLocale()
+import { ROUTE } from '@/common/routes'
+import type { ISubject } from '@/services/tutorial/tutorial.interface'
 
 defineProps<{
+  subject: ISubject
   imgSrc: string
 }>()
 
 </script>
 
 <template>
-  <div class="subject-card">
+  <router-link :to="ROUTE.home" class="subject-card">
     <div class="card__image">
       <img :src="imgSrc" alt="Subject image">
     </div>
 
-    <div class="card__name">{{ t('page.home.subject.demoName') }}</div>
+    <div class="card__name">{{ subject.name }}</div>
 
     <svg class="card__arrow">
       <use xlink:href="@/assets/icons/sprite.svg#arrow-icon" />
     </svg>
-  </div>
+  </router-link>
 </template>
 
 <style lang="scss">

@@ -23,7 +23,7 @@ watch(() => props.modelValue, (newValue) => {
   }
   
   convertFileToUrl(newValue)
-})
+}, { immediate: true })
 
 function openFolder() {
   userAvatarInput.value?.click()
@@ -39,7 +39,7 @@ function handleFileSelect(event: Event) {
 
 function convertFileToUrl (value: string | File): void {
   if (typeof value === 'string') {
-    userAvatar.value = `${DEFAULT_AVATAR}${value}`
+    userAvatar.value = value
     return 
   }
 

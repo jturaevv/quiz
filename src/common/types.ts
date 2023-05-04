@@ -13,3 +13,9 @@ export interface ILoginForm {
   phone: string
   password: string
 }
+
+export enum LOADER_SIZE {
+  sm = 'sm',
+  md = 'md',
+  lg = 'lg',
+}

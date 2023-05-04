@@ -7,6 +7,7 @@ import BasePhoneField from '@/ui/BasePhoneField.vue'
 import BaseForm from '@/ui/BaseForm.vue'
 import BaseNumberField from '@/ui/BaseNumberField.vue'
 import BaseTextField from '@/ui/BaseTextField.vue'
+import BaseLoader from '@/ui/BaseLoader.vue'
 
 
 declare module '@vue/runtime-core' {
@@ -20,5 +21,6 @@ declare module '@vue/runtime-core' {
     BaseForm: typeof BaseForm
     BaseNumberField: typeof BaseNumberField
     BaseTextField: typeof BaseTextField
+    BaseLoader: typeof BaseLoader
   }
 }
