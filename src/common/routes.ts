@@ -1,3 +1,7 @@
+enum PATTERN {
+  id = ':id'
+}
+
 export const ROUTE = {
   defaultIndex: '/',
   home: '/',
@@ -7,5 +11,8 @@ export const ROUTE = {
   authIndex: '/auth',
   profileIndex: '/profile',
   dashboard: '/profile/dashboard',
-  settings: '/profile/settings'
+  settings: '/profile/settings',
+  tutorialIndex: '/tutorial',
+  subject: (subjectId: number | string = PATTERN.id,) => `/tutorial/subject-${subjectId}`,
+  lesson: (subjectId: number | string = PATTERN.id, lessonId: number | string = PATTERN.id) => `/tutorial/subject-${subjectId}/lesson-${lessonId}`,
 }

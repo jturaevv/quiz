@@ -10,7 +10,7 @@ defineProps<{
 </script>
 
 <template>
-  <router-link :to="ROUTE.home" class="subject-card">
+  <router-link :to="ROUTE.subject(subject.id)" class="subject-card">
     <div class="card__image">
       <img :src="imgSrc" alt="Subject image">
     </div>

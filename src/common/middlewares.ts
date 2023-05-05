@@ -18,7 +18,7 @@ export const ProfileController: NavigationGuard = (to, _from, next): void => {
   next()
 }
 
-export const DefaultController: NavigationGuard = async (to, _from, next): Promise<void> => {
+export const DefaultController: NavigationGuard = async (_to, _from, next): Promise<void> => {
   const authStore = useAuthStore()
   const userStore = useUserStore()
 
@@ -30,6 +30,12 @@ export const DefaultController: NavigationGuard = async (to, _from, next): Promi
       authStore.logout()
     }
   }
+
+  next()
+}
+
+export const TutorialController: NavigationGuard = async (to, _from, next): Promise<void> => {
+  if (to.path === ROUTE.tutorialIndex) next(ROUTE.defaultIndex)
 
   next()
 }

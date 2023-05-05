@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/HomeView.vue'
 import { ROUTE } from '@/common/routes'
-import { AuthController, AuthGuard, DefaultController, ProfileController } from '@/common/middlewares'
+import { AuthController, AuthGuard, DefaultController, ProfileController, TutorialController } from '@/common/middlewares'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -60,6 +60,26 @@ const router = createRouter({
           component: () => import('@/views/profile/SettingsView.vue'),
           beforeEnter: [AuthGuard]
         },
+      ]
+    },
+    {
+      path: ROUTE.tutorialIndex,
+      name: 'tutorial-layout',
+      component: () => import('@/layouts/TutorialLayout.vue'),
+      beforeEnter: [TutorialController],
+      children: [
+        {
+          path: ROUTE.subject(),
+          name: 'subject',
+          component: () => import('@/views/tutorial/SubjectView.vue'),
+          beforeEnter: [AuthGuard]
+        },
+        {
+          path: ROUTE.lesson(),
+          name: 'lesson',
+          component: () => import('@/views/tutorial/LessonView.vue'),
+          beforeEnter: [AuthGuard]
+        }
       ]
     }
   ]

@@ -1,19 +1,27 @@
 <script setup lang="ts">
-import MainHeader from '@/components/layout/DefaultHeader.vue'
+import WideHeader from '@/components/layout/WideHeader.vue'
 
 </script>
 
 <template>
   <div class="tutorial-layout">
-    <main-header class="layout-header" />
+    <wide-header class="layout-header" />
 
     <main class="layout-main">
-      <router-view />
+      <div class="layout__sidebar">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, eos.
+      </div>
+      
+      <div class="layout-body">
+        <div class="layout__page">
+          <router-view />
+        </div>
+  
+        <footer class="layout-footer">
+          Default footer
+        </footer>
+      </div>
     </main>
-
-    <!-- <footer class="layout-footer">
-      Default footer
-    </footer> -->
   </div>
 </template>
 
@@ -22,12 +30,37 @@ import MainHeader from '@/components/layout/DefaultHeader.vue'
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
 
   .layout {
-    &-header {}
+    &-header {
+      position: static;
+    }
 
     &-main {
       display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    &-body {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden auto;
+    }
+
+    &__sidebar {
+      --width: 350px;
+
+      background: $palette-third-60;
+      max-width: var(--width);
+      min-width: var(--width);
+      padding: 50px;
+      overflow: hidden auto;
+    }
+
+    &__page {
       flex: 1;
     }
 
