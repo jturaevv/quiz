@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import WideHeader from '@/components/layout/WideHeader.vue'
+import TutorialSidebar from '@/components/layout/TutorialSidebar.vue'
 
 </script>
 
@@ -9,7 +10,7 @@ import WideHeader from '@/components/layout/WideHeader.vue'
 
     <main class="layout-main">
       <div class="layout__sidebar">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, eos.
+        <tutorial-sidebar />
       </div>
       
       <div class="layout-body">
@@ -56,7 +57,6 @@ import WideHeader from '@/components/layout/WideHeader.vue'
       background: $palette-third-60;
       max-width: var(--width);
       min-width: var(--width);
-      padding: 50px;
       overflow: hidden auto;
     }
 

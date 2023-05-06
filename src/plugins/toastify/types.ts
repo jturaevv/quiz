@@ -1,5 +1,7 @@
 export namespace TOAST_MESSAGE {
   export namespace ERROR {
+    export const DEFAULT = 'toast.error.default' 
+
     export enum LOGIN {
       CREDENTIALS = 'toast.error.login.credentials',
     }
