@@ -45,11 +45,10 @@ const expandItems = [
 ]
 
 function redirectHandler() {
-  console.log('route', route.params)
-  
-  const subjectId = route.params.id as string
+  const { subjectId } = route.params
   const lessonId = 1
-  router.push(ROUTE.lesson(subjectId, lessonId))
+
+  router.push(ROUTE.lesson(subjectId as string, lessonId))
 }
 </script>
 

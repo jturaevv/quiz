@@ -1,5 +1,7 @@
 enum PATTERN {
-  id = ':id'
+  id = ':id',
+  subjectId = ':subjectId',
+  lessonId = ':lessonId',
 }
 
 export const ROUTE = {
@@ -13,6 +15,7 @@ export const ROUTE = {
   dashboard: '/profile/dashboard',
   settings: '/profile/settings',
   tutorialIndex: '/tutorial',
-  subject: (subjectId: number | string = PATTERN.id,) => `/tutorial/subject-${subjectId}`,
-  lesson: (subjectId: number | string = PATTERN.id, lessonId: number | string = PATTERN.id) => `/tutorial/subject-${subjectId}/lesson-${lessonId}`,
+  subject: (subjectId: number | string = PATTERN.subjectId,) => `/tutorial/subject-${subjectId}`,
+  lesson: (subjectId: number | string = PATTERN.subjectId, lessonId: number | string = PATTERN.lessonId) => `/tutorial/subject-${subjectId}/lesson-${lessonId}`,
+  questions: (subjectId: number | string = PATTERN.subjectId, lessonId: number | string = PATTERN.lessonId) => `/tutorial/subject-${subjectId}/lesson-${lessonId}/questions`
 }

@@ -1,7 +1,18 @@
 <script setup lang="ts">
+import { ROUTE } from '@/common/routes'
 import { useLocale } from '@/composables/useLocale'
+import { useRoute, useRouter } from 'vue-router'
 
 const { t } = useLocale()
+const router = useRouter()
+const route = useRoute()
+
+function redirectHandler() {
+  console.log('route.params :>> ', route.params)
+  const { subjectId, lessonId } = route.params
+
+  router.push(ROUTE.questions(subjectId as string, lessonId as string))
+}
 </script>
 
 <template>
@@ -41,7 +52,7 @@ const { t } = useLocale()
         решений. Имеется спорная точка зрения, гласящая примерно следующее:
         интерактивные прототипы лишь.
       </p>
-      <base-button>{{ t("action.passingTest") }}</base-button>
+      <base-button  @click="redirectHandler">{{ t("action.test") }}</base-button>
     </div>
   </div>
 </template>
