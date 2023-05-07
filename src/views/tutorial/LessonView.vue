@@ -1,12 +1,89 @@
 <script setup lang="ts">
+import { useLocale } from '@/composables/useLocale'
+
+const { t } = useLocale()
 </script>
 
 <template>
   <div class="lesson tutorial-page">
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita nobis hic itaque soluta nihil asperiores eos aperiam, natus veniam nostrum magnam ab dolorum iusto minima voluptatum velit, quisquam omnis facere mollitia accusantium! Fugit itaque suscipit cum, ipsam unde, voluptate eum debitis dolore dicta assumenda aspernatur? Non beatae aperiam quos voluptas aliquam incidunt, ut consequatur hic dignissimos quod magni aut temporibus consectetur natus amet accusantium labore itaque optio a dolore sed vitae. Magni delectus veritatis dolorem cupiditate cumque minima, similique quas molestiae, dolores modi accusantium ducimus dignissimos fuga molestias exercitationem maxime voluptatibus explicabo enim ipsum, et sequi in deleniti! Libero ea possimus dolore architecto quasi, sit molestiae vero magni, labore quod cupiditate sapiente, aut ex perspiciatis? Sequi iusto hic nulla eveniet modi cumque soluta ipsum recusandae neque facere dolores iure itaque, reprehenderit omnis quis eius voluptates amet eaque? Esse sed asperiores dicta quas sit voluptatibus culpa cupiditate porro magnam officiis quia obcaecati veritatis placeat quisquam dignissimos itaque quidem, molestiae enim reiciendis iste impedit maxime? Magni minima consequuntur at modi velit natus consectetur veritatis adipisci voluptates temporibus, aliquid reprehenderit porro animi molestiae quam! Sit eos possimus doloribus aliquam iure voluptatem inventore expedita iste, aperiam, itaque quod ducimus libero sunt necessitatibus sapiente tenetur?
+    <h2 class="lesson__title">
+      Существующая теория <br />
+      <span>предоставляет</span>
+    </h2>
+    <base-video-player
+      class="lesson__video"
+      src="video/demo-video.mp4"
+      poster="images/video-poster.png"
+      controls
+      :volume="0.6"
+      type="video/mp4"
+    />
+    <div class="lesson-subcontent">
+      <h4 class="subcontent__title">
+        Существующая теория <span>предоставляет</span>
+      </h4>
+      <p class="subcontent__text">
+        Как принято считать, явные признаки победы институционализации,
+        инициированные исключительно синтетически, заблокированы в рамках своих
+        собственных рациональных ограничений. Как принято считать, явные
+        признаки победы институционализации, инициированные исключительно
+        синтетически, заблокированы в рамках своих собственных рациональных
+        ограничений. Как принято считать, явные признаки победы
+        институционализации, инициированные исключительно синтетически,
+        заблокированы в рамках своих собственных рациональных ограничений.
+        <br />
+        Как принято считать, явные признаки победы институционализации,
+        инициированные исключительно синтетически, заблокированы в рамках своих
+        собственных рациональных ограничений. <br />
+        Высокий уровень вовлечения представителей целевой аудитории является
+        четким доказательством простого факта: выбранный нами инновационный путь
+        не оставляет шанса для экономической целесообразности принимаемых
+        решений. Имеется спорная точка зрения, гласящая примерно следующее:
+        интерактивные прототипы лишь.
+      </p>
+      <base-button>{{ t("action.passingTest") }}</base-button>
+    </div>
   </div>
 </template>
 
 <style lang="scss">
-  
+.lesson {
+  display: flex;
+  &__title {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 130%;
+    color: #060c0e;
+    margin-bottom: 60px;
+
+    span {
+      color: $primaryColor;
+    }
+  }
+
+  &__video {
+    width: 700px;
+    height: 430px;
+    margin-bottom: 40px;
+  }
+
+  .subcontent {
+    &__title {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 130%;
+      margin-bottom: 30px;
+      color: #060c0e;
+    }
+
+    &__text {
+      font-family: "Inter";
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 130%;
+      margin-bottom: 40px;
+      color: #060c0e;
+    }
+  }
+}
 </style>

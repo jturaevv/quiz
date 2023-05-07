@@ -48,6 +48,7 @@ import TutorialSidebar from '@/components/layout/TutorialSidebar.vue'
     &-body {
       display: flex;
       flex-direction: column;
+      flex: 1;
       overflow: hidden auto;
     }
 
