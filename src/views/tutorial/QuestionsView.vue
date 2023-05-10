@@ -1,14 +1,18 @@
 <script setup lang="ts">
-// import questionApp from './questionApp.vue'
-import resultApp from './resultApp.vue'
+import { ref } from 'vue'
+import QuizSection from '@/components/page/questions/QuizSection.vue'
+import ResultSection from '@/components/page/questions/ResultSection.vue'
+
+const isFinished = ref(false)
+// const isFinished = ref(true)
 </script>
 
 <template>
   <div class="questions-page page">
     <div class="container">
       <div class="questions-wrapper">
-        <!-- <question-app /> -->
-        <resultApp />
+        <quiz-section v-if="!isFinished" />
+        <result-section v-else />
       </div>
     </div>
   </div>
@@ -20,19 +24,11 @@ import resultApp from './resultApp.vue'
     padding: 150px 0;
   }
 
-  &__title {
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 130%;
-    text-align: center;
-    margin-bottom: 40px;
-    color: #060c0e;
-  }
-
-  &-body {
+  &-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    justify-content: center;
+    flex: 1;
   }
 }
 </style>

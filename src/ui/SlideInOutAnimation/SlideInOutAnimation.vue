@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import { ref, defineProps, onMounted } from "vue";
+import { ref, onMounted } from 'vue'
 
-const props = defineProps({
+defineProps({
   modelValue: Boolean
 })
 const content = ref()
 
-function beforeEnter (_t) {
-  _t.style.display = 'block'
-  _t.myHeight = content.value.offsetHeight
+function beforeEnter (t: any) {
+  t.style.display = 'block'
+  t.myHeight = content.value.offsetHeight
 }
 
-function enter (_t) {
-  _t.style.maxHeight = _t.myHeight + 'px'
+function enter (t: any) {
+  t.style.maxHeight = t.myHeight + 'px'
 }
 
 const observer = new ResizeObserver((entries) => {
