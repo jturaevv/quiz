@@ -60,8 +60,8 @@ const defineChildStatus = (value: string) => {
 }
 
 onMounted(() => {
-  if (accordion?.value?.children) {
-    for (const child of accordion.value.children) { // @ts-ignore
+  if (accordion?.value?.children) { // @ts-ignore
+    for (const child of accordion.value.children) {
       children.push(child.__vnode.ctx.devtoolsRawSetupState)
     }
   }
