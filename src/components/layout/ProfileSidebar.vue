@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import { DEFAULT_AVATAR } from '@/common/constants'
 import { useLocale } from '@/composables/useLocale'
 import { useUserStore } from '@/stores/user'
-import { PROFILE_LINKS, SPRITE } from '@/common/constants'
+import { PROFILE_LINKS } from '@/common/constants'
 import { useAuthStore } from '@/stores/auth'
 import { useRouter } from 'vue-router'
 import { ROUTE } from '@/common/routes'
@@ -12,6 +12,8 @@ const { t } = useLocale()
 const userStore = useUserStore()
 const authStore = useAuthStore()
 const router = useRouter()
+
+const SPRITE = await import('@/assets/icons/sprite.svg')
 
 const user = computed(() => {
   return userStore.user
@@ -24,7 +26,7 @@ const userAvatar = computed(() => {
 })
 
 function defineLinkIcon(path: string): string {
-  return `${SPRITE.default}#${path}`
+  return `${SPRITE}#${path}`
 }
 
 function logout(): void {
