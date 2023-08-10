@@ -2,23 +2,26 @@
 import type { Rules } from '@/common/types'
 import { computed, ref } from 'vue'
 
-const props = withDefaults(defineProps<{
-  modelValue: string | number | null
-  title: string
-  outlined?: boolean
-  rules?: Rules
-  disabled?: boolean
-  color?: string
-  type: string
-}>(), {
-  outlined: false,
-  rules: () => [],
-  disabled: false,
-  color: '#C0D2D3'
-})
+const props = withDefaults(
+  defineProps<{
+    modelValue: string | number | null;
+    title: string;
+    outlined?: boolean;
+    rules?: Rules;
+    disabled?: boolean;
+    color?: string;
+    type: string;
+  }>(),
+  {
+    outlined: false,
+    rules: () => [],
+    disabled: false,
+    color: '#C0D2D3',
+  }
+)
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: string | number | null): void
+  (e: 'update:modelValue', value: string | number | null): void;
 }>()
 
 const isToched = ref(false)
@@ -31,7 +34,7 @@ const value = computed({
   },
   set(newValue) {
     emit('update:modelValue', newValue)
-  }
+  },
 })
 
 const placeholder = computed(() => {
@@ -57,7 +60,7 @@ function validate() {
 
   if (!isToched.value) isToched.value = true
 
-  for(let rule of props.rules) {
+  for (let rule of props.rules) {
     const error = rule(value.value)
 
     if (error !== true) {
@@ -79,15 +82,33 @@ function onBlurHandler(): void {
 }
 
 defineExpose({ validate })
-</script> 
+</script>
 
 <template>
-  <div :class="['base-field form__element', { error: errorMessage, focused: isFocused, disabled: disabled, filled: value }]"
-    :style="{ color }">
+  <div
+    :class="[
+      'base-field form__element',
+      {
+        error: errorMessage,
+        focused: isFocused,
+        disabled: disabled,
+        filled: value,
+      },
+    ]"
+    :style="{ color }"
+  >
     <div class="field-input-wrapper">
       <div v-if="label" class="field__label">{{ label }}</div>
-      <input v-model="value" class="field__input" :type="type" :placeholder="placeholder" :disabled="disabled"
-        @input="onChangeHandler" @focus="onFocusHandler" @blur="onBlurHandler">
+      <input
+        v-model="value"
+        class="field__input"
+        :type="type"
+        :placeholder="placeholder"
+        :disabled="disabled"
+        @input="onChangeHandler"
+        @focus="onFocusHandler"
+        @blur="onBlurHandler"
+      />
     </div>
 
     <div v-if="errorMessage" class="field__error">
@@ -105,7 +126,7 @@ defineExpose({ validate })
 
   display: flex;
   flex-direction: column;
-  font-family: 'Inter';
+  font-family: "Inter";
   font-weight: 500;
   font-size: 14px;
   padding: 24px 0;
@@ -165,7 +186,7 @@ defineExpose({ validate })
       padding-right: var(--padding-x);
       padding-bottom: var(--padding-y);
       padding-left: var(--padding-x);
-      font-family: 'Inter';
+      font-family: "Inter";
       font-weight: 500;
       font-size: 14px;
       color: currentColor;
@@ -183,13 +204,13 @@ defineExpose({ validate })
       }
 
       /* Firefox */
-      &[type=number] {
+      &[type="number"] {
         appearance: textfield;
       }
     }
 
     &__error {
-      font-family: 'Inter';
+      font-family: "Inter";
       font-size: 11px;
       font-weight: 600;
       line-height: 1.5;
