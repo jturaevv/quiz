@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onBeforeUnmount, ref } from 'vue'
 import { DEFAULT_AVATAR } from '@/common/constants'
 import { useLocale } from '@/composables/useLocale'
 import { useUserStore } from '@/stores/user'
@@ -13,7 +13,7 @@ const userStore = useUserStore()
 const authStore = useAuthStore()
 const router = useRouter()
 
-const SPRITE = await import('@/assets/icons/sprite.svg')
+const svgSprite = ref()
 
 const user = computed(() => {
   return userStore.user
@@ -26,13 +26,17 @@ const userAvatar = computed(() => {
 })
 
 function defineLinkIcon(path: string): string {
-  return `${SPRITE}#${path}`
+  return `${svgSprite.value}#${path}`
 }
 
 function logout(): void {
   router.push(ROUTE.defaultIndex)
   authStore.logout()
 }
+
+onBeforeUnmount(async () => {
+  svgSprite.value = await import('@/assets/icons/sprite.svg')
+})
 
 </script>
 
