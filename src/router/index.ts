@@ -23,6 +23,16 @@ const router = createRouter({
           component: () => import('@/views/AboutView.vue')
         },
         {
+          path: ROUTE.premium,
+          name: 'premium-pay',
+          component: () => import('@/views/PremiumPayView.vue')
+        },
+        {
+          path: ROUTE.support,
+          name: 'support',
+          component: () => import('@/views/SupportPageView.vue')
+        },
+        {
           path: ROUTE.questions(),
           name: 'questions',
           component: () => import('@/views/tutorial/QuestionsView.vue')

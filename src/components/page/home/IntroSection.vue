@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useLocale } from '@/composables/useLocale'
+import BaseSearchInput from '@/ui/BaseSearchInput.vue'
 
 const { t } = useLocale()
-
 </script>
 
 <template>
@@ -10,13 +10,22 @@ const { t } = useLocale()
     <div class="container">
       <div class="intro-wrapper">
         <div class="intro-content">
-          <h1 class="intro-content__title" v-html="t('page.home.intro.title')" />
-          <h3 class="intro-content__subtitle">{{ t('page.home.intro.subtitle') }}</h3>
-          <input type="text" class="intro-content__search">
+          <h1
+            class="intro-content__title"
+            v-html="t('page.home.intro.title')"
+          />
+          <h3 class="intro-content__subtitle">
+            {{ t("page.home.intro.subtitle") }}
+          </h3>
+          <BaseSearchInput />
         </div>
 
         <div class="intro-media">
-          <img class="intro-media__image" src="@/assets/images/home/intro_image.svg" alt="Intro image">
+          <img
+            class="intro-media__image"
+            src="@/assets/images/home/intro_image.svg"
+            alt="Intro image"
+          />
         </div>
       </div>
     </div>
@@ -53,7 +62,7 @@ const { t } = useLocale()
       }
 
       @include breakpoint(xs) {
-        display: block;        
+        display: block;
       }
     }
 
@@ -105,7 +114,7 @@ const { t } = useLocale()
         font-weight: 400;
         line-height: 21px;
         margin-bottom: 30px;
-        
+
         @include breakpoint(xxs) {
           font-size: 14px;
           line-height: 18px;
@@ -115,7 +124,7 @@ const { t } = useLocale()
 
     &-media {
       min-width: 45%;
-      
+
       @include breakpoint(md) {
         min-width: 100%;
       }

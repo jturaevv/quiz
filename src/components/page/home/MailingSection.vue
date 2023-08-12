@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { useLocale } from '@/composables/useLocale'
+import BaseInput from '@/ui/BaseInput.vue'
 
+const clientEmail = ref('')
 const { t } = useLocale()
-
 </script>
 
 <template>
@@ -10,14 +12,27 @@ const { t } = useLocale()
     <div class="container">
       <div class="mailing-wrapper">
         <h2 class="mailing__title" v-html="t('page.home.mailing.title')" />
-        <h3 class="mailing__subtitle">{{ t('page.home.mailing.subtitle') }}</h3>
-        <input type="text" class="mailing__input">
-        <base-button class="mailing__btn">{{ t('action.send') }}</base-button>
+        <h3 class="mailing__subtitle">{{ t("page.home.mailing.subtitle") }}</h3>
+        <base-input
+          v-model="clientEmail"
+          type="email"
+          title="email"
+          color="#EB6440"
+          outlined
+          class="mailing__input"
+        />
+        <base-button class="mailing__btn">{{ t("action.send") }}</base-button>
+        <!-- <div class="mailing__image">
+          <img
+            src="@/assets/images/home/mailing-image-1.png"
+            alt="Mailing image background"
+          />
+        </div> -->
         <div class="mailing__image">
-          <img src="@/assets/images/home/mailing-image-1.png" alt="Mailing image background">
-        </div>
-        <div class="mailing__image">
-          <img src="@/assets/images/home/mailing-image-2.png" alt="Mailing image background">
+          <img
+            src="@/assets/images/home/mailing-image-2.png"
+            alt="Mailing image background"
+          />
         </div>
       </div>
     </div>
@@ -33,6 +48,11 @@ const { t } = useLocale()
 
   @include breakpoint(lg) {
     height: auto;
+  }
+
+  .base-field {
+    order: 5;
+    flex: 1;
   }
 
   .mailing {
@@ -59,7 +79,7 @@ const { t } = useLocale()
       font-weight: 700;
       text-align: center;
       margin-bottom: 30px;
-      
+
       @include breakpoint(md) {
         font-size: 36px;
       }
@@ -100,12 +120,19 @@ const { t } = useLocale()
     &__input {
       order: 5;
       flex: 1;
+
+      & .field__input {
+        background-color: $pageColor;
+        padding: 16px 18px;
+        border: 1px solid $primaryColor;
+        border-radius: 10px;
+      }
     }
-    
+
     &__btn {
       order: 6;
       margin-left: 10px;
-      
+
       @include breakpoint(xs) {
         flex: 1;
       }
@@ -153,7 +180,7 @@ const { t } = useLocale()
         width: 100%;
         height: 100%;
         object-fit: contain;
-        
+
         @include breakpoint(md) {
           width: 50%;
           height: 50%;

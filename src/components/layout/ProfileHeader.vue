@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import MainLogo from '@/components/layout/MainLogo.vue'
-// import ProfileSearchBar from '../page/profile/ProfileSearchBar.vue'
 import BaseInput from '@/ui/BaseInput.vue'
 import BaseButton from '@/ui/BaseButton.vue'
 
@@ -48,7 +47,6 @@ const searchItem = ref('')
         />
       </svg>
     </div>
-    <!-- <profile-search-bar /> -->
   </div>
 </template>
 

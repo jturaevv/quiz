@@ -3,8 +3,8 @@ import { ref } from 'vue'
 import QuizSection from '@/components/page/questions/QuizSection.vue'
 import ResultSection from '@/components/page/questions/ResultSection.vue'
 
-const isFinished = ref(false)
-// const isFinished = ref(true)
+// const isFinished = ref(false)
+const isFinished = ref(true)
 </script>
 
 <template>
