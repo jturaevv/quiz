@@ -10,6 +10,7 @@ export const ROUTE = {
   about: '/about',
   premium: '/premium',
   support: '/support',
+  payment: '/payment',
   login: '/auth/login',
   register: '/auth/register',
   authIndex: '/auth',

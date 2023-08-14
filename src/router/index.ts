@@ -33,6 +33,11 @@ const router = createRouter({
           component: () => import('@/views/SupportPageView.vue')
         },
         {
+          path: ROUTE.payment,
+          name: 'payment',
+          component: () => import('@/views/PaymentView.vue')
+        },
+        {
           path: ROUTE.questions(),
           name: 'questions',
           component: () => import('@/views/tutorial/QuestionsView.vue')
