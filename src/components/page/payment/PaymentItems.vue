@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import BaseInput from '../../../ui/BaseInput.vue'
-import BaseButton from '@/ui/BaseButton.vue'
 
 const fullName = ref('')
 const email = ref('')
@@ -18,16 +16,21 @@ const expireDate = ref()
         <div class="payment-card">
           <div class="payment__title">Ваши данные</div>
           <div class="payment-info">
-            <BaseInput type="text" v-model="fullName" outlined title="Имя" />
-            <BaseInput
+            <BaseTextField
+              type="text"
+              v-model="fullName"
+              outlined
+              title="Имя"
+            />
+            <BaseTextField
               type="text"
               v-model="fullName"
               outlined
               title="Фамилия"
             />
           </div>
-          <BaseInput type="email" v-model="email" outlined title="Email" />
-          <BaseInput
+          <BaseTextField type="email" v-model="email" outlined title="Email" />
+          <BasePhoneField
             type="tel"
             v-model="phone"
             outlined
@@ -42,7 +45,7 @@ const expireDate = ref()
             </div>
           </div>
           <div class="card-info">
-            <BaseInput
+            <BaseNumberField
               type="number"
               v-model="cardNumber"
               outlined
@@ -50,14 +53,14 @@ const expireDate = ref()
               class="card__field"
             />
             <div class="card-info-child">
-              <BaseInput
+              <BaseTextField
                 type="text"
                 v-model="cardHolder"
                 outlined
                 title="Владелец карты"
                 class="card__field holder"
               />
-              <BaseInput
+              <BaseNumberField
                 type="number"
                 v-model="expireDate"
                 outlined

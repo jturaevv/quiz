@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import BaseButton from '../../../ui/BaseButton.vue'
 import AppExpander from '@/ui/AppExpander/AppExpander.vue'
 import AppExpanderItem from '@/ui/AppExpander/AppExpanderItem.vue'
 
